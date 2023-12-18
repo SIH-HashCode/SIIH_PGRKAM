@@ -1,0 +1,9 @@
+.Dashboard{
+    .target{
+        display: flex;
+        flex-wrap: nowrap;
+        .graph{
+          margin: 1rem;  
+        }
+    }
+}
