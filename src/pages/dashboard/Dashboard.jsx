@@ -3,6 +3,7 @@ import styles from "./Dashboard.module.scss";
 import TotalOrderLineChartCard from "./cards/Cards";
 import Areagraph from "./areagraph/Areagraph";
 import ProgressBar from "./progressbar/ProgressBar";
+import MultiAxis from "./MultiAxisGraph/MultiAxis";
 export default function Dashboard() {
   return (
     <div className={styles.Dashboard}>
@@ -37,6 +38,7 @@ export default function Dashboard() {
           <ProgressBar />
         </div>
       </div>
+      <MultiAxis/>
     </div>
   );
 }
