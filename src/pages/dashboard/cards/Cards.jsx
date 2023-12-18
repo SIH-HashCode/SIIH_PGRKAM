@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import styles from "./Card.module.scss"
+
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
@@ -17,16 +19,16 @@ import ChartDataYear from './year-wise-data';
 
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
-  backgroundColor: mode,
-  color: '#fff',
+  backgroundColor: "transparent",
+  
+  color: '#3c3c3c',
   overflow: 'hidden',
   position: 'relative',
   '&>div': {
     position: 'relative',
-    zIndex: 5
+    zIndex: 7
   },
   '&:after': {
     content: '""',
@@ -34,8 +36,9 @@ const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
     width: 210,
     height: 210,
     background: mode,
+    opacity: 0.5,
     borderRadius: '50%',
-    zIndex: 1,
+    zIndex: 5,
     top: -85,
     right: -95,
     [theme.breakpoints.down('sm')]: {
@@ -45,8 +48,8 @@ const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   },
   '&:before': {
     content: '""',
-    position: 'absolute',
-    zIndex: 1,
+    position: 'absolute',   
+    zIndex: 5,
     width: 210,
     height: 210,
     background: mode,
@@ -67,7 +70,22 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
   const theme = useTheme();
 
   const [timeValue, setTimeValue] = useState(false);
-  const handleChangeTime = (event, newValue) => {
+
+  const [num, setNum]= useState(2) ;
+  const handleChangeTime = (e, newValue) => {
+    
+    const ele= e.target ;
+    ele.disabled=false ;
+    if(num===1)
+    {
+      
+      setNum(2);
+    }
+    else
+    {
+      setNum(1) ;
+    }
+    
     setTimeValue(newValue);
   };
 
@@ -76,8 +94,11 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
       {isLoading ? (
         <SkeletonTotalOrderCard />
       ) : (
+          <div style={{ background: mode+"20", zIndex:"-10" }}>
         <CardWrapper border={false} content={false} mode={mode}>
-          <Box sx={{ p: 2.25 }}>
+
+          
+          <Box sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}}>
             <Grid container direction="column">
               <Grid item>
                 <Grid container justifyContent="space-between">
@@ -96,24 +117,22 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Button
-                      disableElevation
-                      variant={timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, true)}
-                    >
+                    <button
+                     
+                     onClick={(e) => handleChangeTime(e, true)}
+                     className={styles.Back}
+                     style={{background:num===2?mode:"transparent"}}
+                     >
                       Month
-                    </Button>
-                    <Button
-                      disableElevation
-                      variant={!timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
+                    </button>
+                    <button
+                     className={styles.Back}
+                     style={{background:num===1?mode:"transparent"}}
                       onClick={(e) => handleChangeTime(e, false)}
+                      
                     >
                       Year
-                    </Button>
+                    </button>
                   </Grid>
                 </Grid>
               </Grid>
@@ -128,24 +147,13 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                           <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
                         )}
                       </Grid>
-                      <Grid item>
-                        <Avatar
-                          sx={{
-                            ...theme.typography.smallAvatar,
-                            cursor: 'pointer',
-                            backgroundColor: mode,
-                            color: mode
-                          }}
-                        >
-                          <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
-                        </Avatar>
-                      </Grid>
+                      
                       <Grid item xs={12}>
                         <Typography
                           sx={{
                             fontSize: '1rem',
                             fontWeight: 500,
-                            color: '#E9E9E9'
+                            color: '#3c3c3c'
 
                           }}
                         >
@@ -162,6 +170,7 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
             </Grid>
           </Box>
         </CardWrapper>
+          </div>
       )}
     </>
   );

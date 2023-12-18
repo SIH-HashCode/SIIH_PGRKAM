@@ -4,25 +4,39 @@
     border-radius: 20px;
     margin: 1rem;
     .head{
-       p{
-        color:#4B4B4B;
-        font-family: Open Sans;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-       }
+        p {
+            margin: 2.2rem 1rem;
+            color: #4b4b4b;
+            font-family: Open Sans;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
     }
 }
 .bar{
     background-color: rgba(255, 255, 255, 1);
     display: flex;
     margin: 1.5rem 0rem;
+    p{
+       
+          
+            
+        
+            font-family: Open Sans;
+            font-size: .8rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          
+    }
     .barLeft{
         width: 10%;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-right: 1rem;
        .image{
          background-color: grey;    
          border-radius: 1000px;  

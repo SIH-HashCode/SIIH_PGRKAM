@@ -4,6 +4,9 @@ import TotalOrderLineChartCard from "./cards/Cards";
 import Areagraph from "./areagraph/Areagraph";
 import ProgressBar from "./progressbar/ProgressBar";
 import MultiAxis from "./MultiAxisGraph/MultiAxis";
+import StackedBarGraph from "./stackedBarGraph/StackedBarGraph";
+import RadarGraph from "./RadarGraph/RadarGraph";
+import SimpleBar from "./SimpleBar/SimpleBar";
 export default function Dashboard() {
   return (
     <div className={styles.Dashboard}>
@@ -11,9 +14,7 @@ export default function Dashboard() {
       <div className={styles.target}>
         <div className={styles.graph}>
           <TotalOrderLineChartCard
-            isLoading={false}
-            mode="#7A3DD9
-"
+            isLoading={false} mode="purple"
           />
         </div>
         <div className={styles.graph}>
@@ -25,8 +26,7 @@ export default function Dashboard() {
         <div className={styles.graph}>
           <TotalOrderLineChartCard
             isLoading={false}
-            mode="#01B59A
-"
+            mode="#01B59A"
           />
         </div>
       </div>
@@ -38,7 +38,24 @@ export default function Dashboard() {
           <ProgressBar />
         </div>
       </div>
-      <MultiAxis/>
+      <div style={{ display: "flex", width: "100%" }}>
+        <div style={{ width: "35%" }}>
+        <MultiAxis/>
+        </div>
+        <div style={{ width: "65%" }}>
+          <StackedBarGraph />
+        </div>
+      </div>
+      <div style={{ display: "flex", width: "100%",height:"fit-content" }}>
+        <div style={{ width: "65%" }}>
+        <SimpleBar/>
+        </div>
+        <div style={{ width: "35%" }}>
+        <RadarGraph/>
+        </div>
+      </div>
+      
+      
     </div>
   );
 }
