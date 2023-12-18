@@ -1,8 +1,9 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Landing from './pages/Landing'
 import Searchbar from './pages/searchbar/Searchbar'
-import Dashboard from './pages/dashboard/Dashboard'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import  DashBoard  from './pages/dashboard/Dashboard'
 
 const theme = createTheme({
   palette: {
@@ -16,11 +17,14 @@ const theme = createTheme({
 });
 function App() {
   return(<>
-      <ThemeProvider theme={theme}>
-
-  <Searchbar/>
-    <Dashboard />
-    </ThemeProvider>
+  <BrowserRouter>
+  <Routes>
+     {/* <Route path='/' element={<Landing />} /> */}
+   
+    <Route path='/' element={<><Searchbar/><DashBoard /></>} />
+   
+  </Routes>
+  </BrowserRouter>
     </>
   )
 }

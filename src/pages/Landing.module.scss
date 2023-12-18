@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500&family=Maitree:wght@200;300;400;500;600;700&display=swap');
+
+$Dark: #1C1E26;
+$Text2: #4B4B4B;
+
+.back {
+  font-family: 'Maitree', serif;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  box-sizing: border-box;
+  background: #EEF2F6;
+  display: flex;
+}
+
+.heading {
+  color: var(--Dark, #{$Dark});
+  text-align: center;
+  font-family: Maitree;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.left {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: end;
+}
+
+.illustration {
+  width: 100%;
+  margin-left: 10%;
+}
+
+.right {
+  height: 80%;
+  align-self: flex-end;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    border-bottom: 1px solid black;
+    color: var(--Text2, #{$Text2});
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-style: normal;
+    min-width: 200px;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.loginBtn {
+  background-color: #A259FF;
+  width: 30%;
+  margin-top: 40px;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  min-width: 100px;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+
+
+@media screen and (max-width:600px) {
+
+.left{
+
+display: none;
+}
+  .right{
+
+width:100% ;
+}
+
+}
+
+
+
+.outer{
+width: 80%;
+}

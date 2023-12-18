@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
-
+import styles from "./MultiAxisGraph.module.scss"
 const MultiAxis = () => {
   const options = {
     chart: {
