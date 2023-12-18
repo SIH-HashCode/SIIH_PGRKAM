@@ -1,11 +1,14 @@
 import React from 'react'
 import styles from "./ProgressBar.module.scss"
-export default function Bar({svgImage,title,count,colour,upperBound,currentBound}) {
+import job from "../../../assets/job.svg"
+export default function Bar({svgImage,title,count,colour,upperBound,currentBound,back}) {
     const percentage = (currentBound / upperBound) * 100;
   return (
     <div className={styles.bar}>
       <div className={styles.barLeft}>
-        <svg style={{background : colour,color:colour}}>{svgImage}</svg>
+        <div className={styles.image} style={{background:colour}}>
+        <img src={svgImage}/>
+        </div>
       </div>
       <div className={styles.barRight}>
         <div className={styles.titles}>
@@ -13,8 +16,7 @@ export default function Bar({svgImage,title,count,colour,upperBound,currentBound
         <p>+{count}</p>
         </div>
         <div className={styles.barProgress}>
-            <div ></div>
-            <div style={{ width: `${percentage}%` }}></div>
+            <div style={{ width: `${percentage}%`,height:"0.7rem",background:back, borderRadius:"100px"}}/>
         </div>
       </div>
     </div>

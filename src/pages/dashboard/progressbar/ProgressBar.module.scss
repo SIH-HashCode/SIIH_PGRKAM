@@ -1,3 +1,52 @@
-.progressbar{
-    
+.progreebar{
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    margin: 1rem;
+    .head{
+       p{
+        color:#4B4B4B;
+        font-family: Open Sans;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+       }
+    }
+}
+.bar{
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    margin: 1.5rem 0rem;
+    .barLeft{
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       .image{
+         background-color: grey;    
+         border-radius: 1000px;  
+         height: 40px;
+         width: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+       }
+       
+    }
+    .barRight{
+        width: 90%;
+        margin-left: 0.4rem;
+        .titles{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .barProgress{
+            width: 100%;
+            height: .7rem;
+            background-color: rgba(218, 218, 218, 1);
+            border-radius: 100px;
+        }
+    }
 }
