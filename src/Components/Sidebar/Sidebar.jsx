@@ -11,7 +11,7 @@ import feedback from '../../assets/SidebarFeedback.svg';
 import down from '../../assets/SidebarDown.svg';
 import up from '../../assets/SidebarUp.svg';
 
-const Sidebar = () => {
+const Sidebar = ({setSidebarOpen,sidebarOpen}) => {
   // Initialize state for options with default values
   const [optionsState, setOptionsState] = useState({
     Users: false,
@@ -70,14 +70,17 @@ const [open, setOpen] = useState(true);
 
   return (
     <>
-    {!open && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open)}} style={{rotate:"180deg"}}/>}
+    {!open && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+      setSidebarOpen(!sidebarOpen)}} style={{rotate:"180deg"}}/>}
     <div className={styles.sidebar} style={{display: open?"block":"none"}}>
       <div className={styles.head}>
         <div className={styles.logo}>
           <img src={logo} alt="logo" />
           <div> PGRKAM </div>
         </div>
-        <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open)}}/>
+        <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open)
+        setSidebarOpen(!sidebarOpen)
+        }}/>
       </div>
       <div className={styles.dash}>
         <img src={dashboard} alt='/' />

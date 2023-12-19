@@ -1,22 +1,16 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from "./Card.module.scss"
-
-
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
-
 // third-party
 import Chart from 'react-apexcharts';
-
 // project imports
 import CardDashBoard from './Card';
 import SkeletonTotalOrderCard from './Skeletom';
-
 import ChartDataMonth from './month-wise-data';
 import ChartDataYear from './year-wise-data';
-
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 
@@ -142,9 +136,9 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                     <Grid container alignItems="center">
                       <Grid item>
                         {timeValue ? (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
+                          <Typography sx={{ fontSize: '2.125rem', color: '#fff',fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
                         ) : (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
+                          <Typography sx={{ fontSize: '2.125rem',color: '#fff', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
                         )}
                       </Grid>
                       
@@ -153,7 +147,7 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                           sx={{
                             fontSize: '1rem',
                             fontWeight: 500,
-                            color: '#3c3c3c'
+                            color: '#fff'
 
                           }}
                         >

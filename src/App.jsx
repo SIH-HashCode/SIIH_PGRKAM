@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import Searchbar from './pages/searchbar/Searchbar'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import  DashBoard  from './pages/dashboard/Dashboard'
+import ComponentsMount from './ComponentsMount';
 
 const theme = createTheme({
   palette: {
@@ -21,7 +22,7 @@ function App() {
   <Routes>
      {/* <Route path='/' element={<Landing />} /> */}
    
-    <Route path='/' element={<><Searchbar/><DashBoard /></>} />
+    <Route path='/' element={<><ComponentsMount/></>} />
    
   </Routes>
   </BrowserRouter>

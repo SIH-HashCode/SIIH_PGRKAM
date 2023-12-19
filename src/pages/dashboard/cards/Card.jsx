@@ -38,7 +38,7 @@ const CardDashBoard = forwardRef(
         {...others}
         sx={{
           border: border ? '1px solid' : 'none',
-          borderColor: "fff",
+          borderColor: "#fff",
           ':hover': {
             boxShadow: boxShadow ? shadow || '0 2px 14px 0 rgb(32 40 45 / 8%)' : 'inherit'
           },
