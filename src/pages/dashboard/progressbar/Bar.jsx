@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from "./ProgressBar.module.scss"
-import job from "../../../assets/job.svg"
 export default function Bar({svgImage,title,count,colour,upperBound,currentBound,back}) {
     const percentage = (currentBound / upperBound) * 100;
   return (

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./ProgressBar.module.scss"
 import Bar from './Bar'
 import {job,counselling,jobapply,course} from "../../../assets/index"
+import qmark from "../../../assets/qmark.svg"
 export default function ProgressBar() {
     const upperBound = 100;
     const data = [
@@ -48,6 +49,7 @@ export default function ProgressBar() {
     <div className={styles.progreebar}>
         <div className={styles.head}>
         <p className={styles.head}>MOST INTERACTED FEATURES</p>
+        <div className={styles.qmark}><img src={qmark}/></div>
         </div>
       {
         data.map((element)=>{

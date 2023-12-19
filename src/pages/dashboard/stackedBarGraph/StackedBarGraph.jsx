@@ -105,7 +105,7 @@ const StackedBarGraph = () => {
         showInLegend: false,
         color:"#00589C",
         dataPoints: [
-          { label: "Jan", y: 14 },
+          { label: "Amritsar", y: 14 },
           { label: "Feb", y: 8 },
           { label: "Mar", y: 6 },
           { label: "Apr", y: 6 },

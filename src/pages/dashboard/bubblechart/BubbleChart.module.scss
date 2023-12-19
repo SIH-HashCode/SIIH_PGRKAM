@@ -1,0 +1,35 @@
+.bubble{
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 2rem;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.qmark {
+    border-radius: 1000px;  
+    display: flex;
+    margin-left: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEF2F6;
+    height: 20px;
+    width: 20px;
+    padding: .7rem;
+    img{
+       height: 18px;
+       width: 24px;
+       margin: .4rem;
+    }
+  }
+  .head{
+    display: flex;
+    justify-content: space-between;
+    p {
+        margin: 1rem 0rem 0rem 0rem;
+        color: #4b4b4b;
+        font-family: Open Sans;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+}

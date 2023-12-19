@@ -5,51 +5,48 @@ import Areagraph from "./areagraph/Areagraph";
 import ProgressBar from "./progressbar/ProgressBar";
 import MultiAxis from "./MultiAxisGraph/MultiAxis";
 import StackedBarGraph from "./stackedBarGraph/StackedBarGraph";
-import RadarGraph from "./RadarGraph/RadarGraph";
-import SimpleBar from "./SimpleBar/SimpleBar";
-import Sidebar from "../../Components/Sidebar/Sidebar";
-import { width } from "@mui/system";
+import BubbleChart from "./bubblechart/BubbleChart";
 export default function Dashboard() {
+  const data = [
+    ["Amritsar", ["xhhh", "xhh2", "xhh3"]],
+    ["Tehsil 1", ["xhhh", "xhh2", "xhh3"]],
+    // Add more data as needed
+  ];
   return (
     <div className={styles.Dashboard}>
+        <p className={styles.ptitle}>Today</p>
       <div className={styles.cards}>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#7A3DD9" />
+          <TotalOrderLineChartCard isLoading={false} mode="#7A3DD9" monthCount={2000} yearCount={100} title="Average Visit Time"/>
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#F24E1E" />
+          <TotalOrderLineChartCard isLoading={false} mode="#F24E1E" monthCount={2000} yearCount={100} title="Average Visit Time" />
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#0076F4" />
+          <TotalOrderLineChartCard isLoading={false} mode="#0076F4" monthCount={2000} yearCount={100} title="Average Visit Time"/>
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#01B59A" />
+          <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount={2000} yearCount={100} title="Average Visit Time"/>
         </div>
       </div>
       <div style={{ display: "flex", width: "100%" }}>
         <div style={{ width: "70%" }}>
-          <Areagraph />
+          <Areagraph count={200}/>
         </div>
         <div style={{ width: "30%" }}>
           <ProgressBar />
         </div>
       </div>
+      <BubbleChart/>
       <div style={{ display: "flex", width: "100%" }}>
         <div style={{ width: "35%" }}>
           <MultiAxis />
         </div>
         <div style={{ width: "65%" }}>
-          <StackedBarGraph />
+          <StackedBarGraph data={data}/>
         </div>
       </div>
-      <div style={{ display: "flex", width: "100%", height: "fit-content" }}>
-        <div style={{ width: "65%" }}>
-          <SimpleBar />
-        </div>
-        <div style={{ width: "35%" }}>
-          <RadarGraph />
-        </div>
-      </div>
+      
     </div>
   );
 }
