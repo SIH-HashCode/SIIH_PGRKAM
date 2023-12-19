@@ -1,0 +1,107 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 2px 2px 25px 0px rgba(108, 108, 108, 0.25);
+  background: white;
+  height: 100vh;
+  overflow: scroll;
+  
+  .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0rem 1rem 1rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.125rem;
+      font-weight: 700;
+
+      img {
+        padding-right: 1.5rem;
+      }
+    }
+
+    .back {
+      padding: 0rem 1rem;
+    }
+  }
+
+  .dash {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0rem 1rem 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: #868686;
+
+    &:hover {
+      background: rgba(122, 61, 217, 0.12);
+      cursor: pointer;
+    }
+
+    span {
+      padding-left: 0.8rem;
+    }
+  }
+
+  .line {
+    border: 1px solid #b4b4b4;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    color: #868686;
+    font-weight: 600;
+
+    .section {
+      padding: 1rem 1rem 1rem 2rem;
+      border-bottom: 2px solid #b4b4b4;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .heading {
+        font-weight: 700;
+        color: #4b4b4b;
+      }
+
+      ul {
+        padding-left: 1rem;
+        list-style-type: none;
+      }
+
+      .options {
+        .item {
+          display: flex;
+          align-items: center;
+          padding: 1rem 0rem;
+          //flex-direction: column;
+          &:hover {
+            cursor: pointer;
+          }
+
+          .name {
+            padding-left: 1rem;
+            .arrow{
+                padding-left: 6rem;
+            }
+          }
+         
+        }
+      }
+    }
+  }
+}
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
+.card{
+  display: flex;
+}
