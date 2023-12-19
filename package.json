@@ -20,20 +20,17 @@
     "@mui/system": "^5.8.6",
     "@mui/utils": "^5.8.6",
     "@react-oauth/google": "^0.12.1",
-    "@syncfusion/ej2-react-charts": "^24.1.41",
-    "chart.js": "^4.4.1",
-    "lodash": "^4.17.21",
+    "apexcharts": "^3.45.0",
+    "config": "^3.3.9",
     "material-ui-popup-state": "^4.0.1",
-    "numeral": "^2.0.6",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.0",
-    "sass-loader": "^13.3.2",
-    "simplebar": "^6.2.5",
-    "simplebar-react": "^3.2.4"
+    "sass-loader": "^13.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -43,6 +40,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "react-device-detect": "^2.2.2",
+    "react-perfect-scrollbar": "^1.5.8",
     "sass": "^1.69.5",
     "vite": "^5.0.8"
   }
