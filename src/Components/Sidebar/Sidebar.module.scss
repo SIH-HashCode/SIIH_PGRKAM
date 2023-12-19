@@ -4,8 +4,9 @@
   font-family: 'Open Sans', sans-serif;
   box-shadow: 2px 2px 25px 0px rgba(108, 108, 108, 0.25);
   background: white;
-  min-height: 100vh;
-  padding: 1rem 5rem 0rem 0rem;
+  height: 100vh;
+  overflow: scroll;
+  
   .head {
     display: flex;
     flex-direction: row;
@@ -97,6 +98,9 @@
       }
     }
   }
+}
+.sidebar::-webkit-scrollbar{
+  display: none;
 }
 .card{
   display: flex;
