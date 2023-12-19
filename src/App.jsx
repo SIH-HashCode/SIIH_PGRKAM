@@ -1,9 +1,12 @@
 import './App.css'
-import Landing from './pages/Landing'
+import Sidebar from './Components/Sidebar/Sidebar'
+// import Landing from './pages/Landing'
+
 
 function App() {
   return(<>
-    <Landing />
+    {/* <Landing /> */}
+    <Sidebar/>
     </>
   )
 }
