@@ -21,24 +21,24 @@ import ChartDataYear from './year-wise-data';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 
 const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
-  backgroundColor: "transparent",
+  backgroundColor: mode,
   
   color: '#3c3c3c',
   overflow: 'hidden',
   position: 'relative',
   '&>div': {
     position: 'relative',
-    zIndex: 7
+    zIndex: 2
   },
   '&:after': {
     content: '""',
     position: 'absolute',
     width: 210,
     height: 210,
-    background: mode,
-    opacity: 0.5,
+    background: "#3c3c3c",
+    opacity: 0.3,
     borderRadius: '50%',
-    zIndex: 5,
+    zIndex: 0,
     top: -85,
     right: -95,
     [theme.breakpoints.down('sm')]: {
@@ -49,14 +49,14 @@ const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   '&:before': {
     content: '""',
     position: 'absolute',   
-    zIndex: 5,
+    zIndex: 2,
     width: 210,
     height: 210,
-    background: mode,
+    background: "#3c3c3c",
     borderRadius: '50%',
     top: -125,
     right: -15,
-    opacity: 0.5,
+    opacity: 0.3,
     [theme.breakpoints.down('sm')]: {
       top: -155,
       right: -70
@@ -94,8 +94,8 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
       {isLoading ? (
         <SkeletonTotalOrderCard />
       ) : (
-          <div style={{ background: mode+"20", zIndex:"-10" }}>
-        <CardWrapper border={false} content={false} mode={mode}>
+          <div style={{ background: mode+"20",borderRadius:"10px"}}>
+        <CardWrapper border={false} content={false} mode={mode} style={{borderRadius:"10px"}}>
 
           
           <Box sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}}>

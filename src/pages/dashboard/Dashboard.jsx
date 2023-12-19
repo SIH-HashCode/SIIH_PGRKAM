@@ -14,7 +14,7 @@ export default function Dashboard() {
       <div className={styles.target}>
         <div className={styles.graph}>
           <TotalOrderLineChartCard
-            isLoading={false} mode="purple"
+            isLoading={false} mode="#7A3DD9"
           />
         </div>
         <div className={styles.graph}>
