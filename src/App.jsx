@@ -1,12 +1,17 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Sidebar from './Components/Sidebar/Sidebar'
-// import Landing from './pages/Landing'
-
+import { DashBoard, Landing } from './pages'
 
 function App() {
   return(<>
-    {/* <Landing /> */}
-    <Sidebar/>
+  <BrowserRouter>
+  <Routes>
+     <Route path='/' element={<Landing />} />
+   
+    <Route path='/dashboard' element={<DashBoard />} />
+   
+  </Routes>
+  </BrowserRouter>
     </>
   )
 }
