@@ -1,5 +1,5 @@
 .searchbarContainer{
-    background-color: #FFFFFF;
+    background-color: #EEF2F6;
     padding: .6rem 3.5rem .6rem 3.5rem;
     display: flex;
     justify-content:space-between;
@@ -8,19 +8,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40%;
+        width: 30%;
         .searchInput {
-        box-shadow: 0px 1px #0000002c;
           width: 100%;
           min-width: 100px;
-          background-color: #EFF1F7;
+          border-radius: 2rem;
+          border: 1px solid #D1D1D1;
+          background: #FFF;
+          box-shadow: 1px 1px 5px 0px rgba(187, 177, 177, 0.25);
           height: 20px;
           padding: .6rem .6rem .6rem 2.5rem;
           font-size: 1rem;
           border-radius: 20px;
           border: none;
           outline: none;
-          background-image: url("../../assets/search.svg");
+          background-image: url("../../assets/SearchbarSearch.svg");
           background-repeat: no-repeat;
           background-position: 10px center;
         }
@@ -34,6 +36,9 @@
             width: 56px;
             border: none;
             border-radius: 100px;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 }
