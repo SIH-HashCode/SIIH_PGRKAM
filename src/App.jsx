@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import ComponentsMount from './ComponentsMount';
 import Maps from './pages/Maps'
 import Dash2 from './pages/Dash/DashBoard';
+import UserActivity from './pages/UserActivity/UserActivity';
 
 function App() {
   return(<>
@@ -13,7 +14,10 @@ function App() {
   <Routes>
    
     <Route path='/dashboard' element={<><ComponentsMount/></>} />
-    <Route path='/dash2' element ={<Dash2 />} />
+    <Route path='/dash2' element ={
+    // <Dash2 />
+    <UserActivity/>
+    } />
     <Route path='/' element={<Landing />} />
     <Route path='/map' element={<Maps />} />
   </Routes>

@@ -9,6 +9,7 @@ import RadarGraph from "./RadarGraph/RadarGraph";
 import SimpleBar from "./SimpleBar/SimpleBar";
 import Maps from "../Maps";
 import BubbleChart from "./bubblechart/BubbleChart";
+import Table from "../../Components/Table/Table";
 export default function Dashboard() {
   const data = [
     ["Amritsar", ["xhhh", "xhh2", "xhh3"]],
@@ -54,6 +55,7 @@ export default function Dashboard() {
           <Maps  />
         </div>
        </div>
+       <Table/>
     </div>
   );
 }
