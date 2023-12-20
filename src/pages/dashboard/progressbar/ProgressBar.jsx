@@ -3,6 +3,7 @@ import styles from "./ProgressBar.module.scss"
 import Bar from './Bar'
 import {job,counselling,jobapply,course} from "../../../assets/index"
 import qmark from "../../../assets/qmark.svg"
+import { Tooltip } from '@mui/material'
 export default function ProgressBar() {
     const upperBound = 100;
     const data = [
@@ -49,7 +50,11 @@ export default function ProgressBar() {
     <div className={styles.progreebar}>
         <div className={styles.head}>
         <p className={styles.head}>MOST INTERACTED FEATURES</p>
-        <div className={styles.qmark}><img src={qmark}/></div>
+            <Tooltip title="This shows total number of users on mobile or web application at a particular instance of time." arrow>
+        <div className={styles.qmark} style={{cursor:'pointer'}}>
+            <img src={qmark} />
+            </div>
+            </Tooltip>
         </div>
       {
         data.map((element)=>{

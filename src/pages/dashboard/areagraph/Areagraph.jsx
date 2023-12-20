@@ -6,6 +6,9 @@ import uparrow from "../../../assets/uparrow.svg"
 import qmark from "../../../assets/qmark.svg"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+
 // Data for the area chart
 const areaChartData = [
   {
@@ -65,7 +68,11 @@ const Areagraph = ({count}) => {
           <div className={styles.pimg}>
             <img src={uparrow}/>
             <p>{count}</p>
-            <div className={styles.qmark}><img src={qmark}/></div>
+            <Tooltip title="This shows total number of users on mobile or web application at a particular instance of time." arrow>
+            <div className={styles.qmark} style={{cursor:'pointer'}}>
+            <img src={qmark} />
+            </div>
+            </Tooltip>
           </div>
           <div className={styles.filter}>
           <DatePicker

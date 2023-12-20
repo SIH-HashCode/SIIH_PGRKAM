@@ -5,6 +5,9 @@ import Areagraph from "./areagraph/Areagraph";
 import ProgressBar from "./progressbar/ProgressBar";
 import MultiAxis from "./MultiAxisGraph/MultiAxis";
 import StackedBarGraph from "./stackedBarGraph/StackedBarGraph";
+import RadarGraph from "./RadarGraph/RadarGraph";
+import SimpleBar from "./SimpleBar/SimpleBar";
+import Maps from "../Maps";
 import BubbleChart from "./bubblechart/BubbleChart";
 import CardGraph from "../cardgraph/CardGraph";
 import SimpleBar from "./SimpleBar/SimpleBar";
@@ -49,7 +52,11 @@ export default function Dashboard() {
           <StackedBarGraph data={data}/>
         </div>
       </div>
-      
+       <div style={{ display: "flex", width: "100%", alignItems:'center', justifyContent:'center', marginTop:30 }}>
+       <div style={{ width: "80%",height:'100%', minHeight:800, padding:10, borderRadius:10, background:"#fff"}}>
+          <Maps  />
+        </div>
+       </div>
     </div>
   );
 }

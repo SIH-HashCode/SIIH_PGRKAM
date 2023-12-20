@@ -10,6 +10,12 @@ import page from '../../assets/SidebarPage.svg';
 import feedback from '../../assets/SidebarFeedback.svg';
 import down from '../../assets/SidebarDown.svg';
 import up from '../../assets/SidebarUp.svg';
+import jobSeeker from '../../assets/SidebarJobSeeker.svg';
+import employer from '../../assets/SidebarEmployer.svg';
+import local from '../../assets/SidebarLocal.svg';
+import counsel from '../../assets/SidebarCounsel.svg';
+import skills from '../../assets/SidebarSkills.svg';
+import trending from '../../assets/SidebarTrending.svg';
 
 const Sidebar = ({setSidebarOpen,sidebarOpen,isMobile,setIsMobile}) => {
   // Initialize state for options with default values
@@ -35,12 +41,53 @@ const [open, setOpen] = useState(true);
         {
           img: user,
           name: 'Users',
-          subOptions: ["User1", "User2"],
+          subOptions: [
+              {
+                icon : jobSeeker,
+                label : 'Job Seeker'
+              },
+              {
+                icon : employer,
+                label : 'Indian Employer'
+              },
+              {
+                icon : local,
+                label : 'Local Service Provider'
+              },
+              {
+                icon : counsel,
+                label : 'Counsel Provider'
+              },
+              ],
         },
         {
           img: jobs,
           name: 'Jobs',
-          subOptions: ['District A', 'District B'],
+          // subOptions: [
+          //   { label : 'Amritsar'},
+          //   { label : 'Barnala'},
+          //   { label : 'Bathinda'},
+          //   { label : 'Faridkot'},
+          //   { label : 'Fatehgarh Sahib	'},
+          //   { label : 'Firozpur'},
+          //   { label : 'Fazilka'},
+          //   { label : 'Gurdaspur'},
+          //   { label : 'Hoshiarpur'},
+          //   { label : 'Gurdaspur'},
+          //   { label : 'Jalandhar'},
+          //   { label : 'Kapurthala'},
+          //   { label : 'Ludhiana'},
+          //   { label : 'Mansa	'},
+          //   { label : 'Moga'},
+          //   { label : 'Sri Muktsar Sahib	'},
+          //   { label : 'Pathankot'},
+          //   { label : 'Patiala'},
+          //   { label : 'Rupnagar'},
+          //   { label : 'Sahibzada Ajit Singh Nagar'},
+          //   { label : 'Sangrur'},
+          //   { label : 'Shahid Bhagat Singh Nagar'},
+          //   { label : 'Taran Taran'},
+          // ],
         },
       ],
     },
@@ -55,14 +102,9 @@ const [open, setOpen] = useState(true);
           img: page,
           name: 'Page Visited',
         },
-      ],
-    },
-    {
-      heading: 'Recommend',
-      options: [
         {
-          img: feedback,
-          name: 'Feedback',
+          img: trending,
+          name: 'Trending',
         },
       ],
     },
@@ -109,13 +151,16 @@ const [open, setOpen] = useState(true);
                     </div>
                     {option.subOptions && optionsState[option.name] && (
                       <div className={styles.dropdown}>
-                        {option.subOptions.map((subOption, subOptionIndex) => (
-                          <p key={subOptionIndex}>{subOption}</p>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </li>
+                      {option.subOptions.map((subOption, subOptionIndex) => (
+                        <div key={subOptionIndex} className={styles.subOption}>
+                          {subOption.icon && <img className={styles.icon} src={subOption.icon} alt={subOption.label} />}
+                        <p>{subOption.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </li>
               ))}
             </ul>
           </div>

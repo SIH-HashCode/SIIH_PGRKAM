@@ -1,0 +1,26 @@
+.uprWla {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .circleBahar {
+        
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        .circle {
+            height: 4px;
+            width: 4px;
+            padding: 2px;
+            border-radius: 50%;
+            
+        }
+        
+        
+        
+
+    }
+}
