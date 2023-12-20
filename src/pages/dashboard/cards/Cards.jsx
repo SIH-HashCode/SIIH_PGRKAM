@@ -13,6 +13,7 @@ import ChartDataMonth from './month-wise-data';
 import ChartDataYear from './year-wise-data';
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import { Container } from '@mui/system';
 
 const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   backgroundColor: mode,
@@ -60,7 +61,7 @@ const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
 
 // ==============================|| DASHBOARD - TOTAL ORDER LINE CHART CARD ||============================== //
 
-const TotalOrderLineChartCard = ({ isLoading,mode}) => {
+const TotalOrderLineChartCard = ({ isLoading,mode,monthCount,yearCount,title}) => {
   const theme = useTheme();
 
   const [timeValue, setTimeValue] = useState(false);
@@ -88,11 +89,11 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
       {isLoading ? (
         <SkeletonTotalOrderCard />
       ) : (
-          <div style={{ background: mode+"20",borderRadius:"10px"}}>
+          <div style={{ background: mode+"20",borderRadius:"10px"}} >
         <CardWrapper border={false} content={false} mode={mode} style={{borderRadius:"10px"}}>
 
           
-          <Box sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}}>
+          <Container sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}} >
             <Grid container direction="column">
               <Grid item>
                 <Grid container justifyContent="space-between">
@@ -132,17 +133,17 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
               </Grid>
               <Grid item sx={{ mb: 0.75 }}>
                 <Grid container alignItems="center">
-                  <Grid item xs={6}>
+                  <Grid item xs={0}>
                     <Grid container alignItems="center">
                       <Grid item>
                         {timeValue ? (
-                          <Typography sx={{ fontSize: '2.125rem', color: '#fff',fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
+                          <Typography sx={{ fontSize: '2.125rem', color: '#fff',fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{monthCount}</Typography>
                         ) : (
-                          <Typography sx={{ fontSize: '2.125rem',color: '#fff', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
+                          <Typography sx={{ fontSize: '2.125rem',color: '#fff', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{yearCount}</Typography>
                         )}
                       </Grid>
                       
-                      <Grid item xs={12}>
+                      <Grid item xs={10}>
                         <Typography
                           sx={{
                             fontSize: '1rem',
@@ -151,18 +152,18 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
 
                           }}
                         >
-                          Total Order
+                          {title}
                         </Typography>
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={2}>
                     {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Box>
+          </Container>
         </CardWrapper>
           </div>
       )}

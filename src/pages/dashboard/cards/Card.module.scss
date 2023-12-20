@@ -19,3 +19,16 @@ color: #fff;
     color: #fff;
 
 }
+
+
+.bahaar{
+
+
+@media screen and (max-width:786px) {
+    
+   display: flex; 
+   border: 10px solid black;
+  flex-direction: column !important;  
+}
+
+}
