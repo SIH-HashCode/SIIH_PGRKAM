@@ -7,7 +7,7 @@ import io from 'socket.io-client';
 import Dash2 from './pages/Dash/DashBoard'
 
 const socket = io('http://localhost:5000');
-export default function ComponentsMount() {
+export default function ComponentsMount({dash2}) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [dashboardData, setDashboardData] = useState({
     nonloginuser: {},
@@ -20,7 +20,7 @@ export default function ComponentsMount() {
 
     // Listen for the 'dashboard-update' event
     socket.on('dashboard-update', (data) => {
-      console.log("h", data);
+      console.log("userAct", data);
       // Update the state with the received data
       setDashboardData(data);
 
@@ -32,7 +32,7 @@ export default function ComponentsMount() {
   }, []); // Empty dependency array to run the effect only once on component mount
 
 
-const obj=true ;
+const obj=dash2 ;
 
   return (
     <div className={styles.container}>

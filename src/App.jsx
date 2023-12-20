@@ -12,8 +12,10 @@ function App() {
   <BrowserRouter>
   <Routes>
    
-    <Route path='/dashboard' element={<><ComponentsMount/></>} />
+    <Route path='/dashboard1' element={<><ComponentsMount/></>} />
+    <Route path='/dashboard2' element={<><ComponentsMount dash2={true} /></>} />
     <Route path='/dash2' element ={<Dash2 />} />
+      
     <Route path='/' element={<Landing />} />
     <Route path='/map' element={<Maps />} />
   </Routes>

@@ -26,12 +26,12 @@ const func = (index) => {
     case 4:
       return <ColumnGraph />;
     case 1:
-      return <PieChart gender="male"  />; 
+      return <PieChart gender="male" index={index}  />; 
     case 3:
-      return <PieChart employment="employed" />; 
+      return <PieChart employment="employed" index={index} />; 
     
     case 2:
-        return <PieChart disability={true} />; 
+        return <PieChart disability={true} index={index} />; 
   }
 };
 export default function Dash2() {

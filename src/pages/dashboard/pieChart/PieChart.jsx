@@ -1,10 +1,11 @@
 import { style } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import styles from "./PieChart.module.scss"; // Assuming this is correctly configured
+import { fetchUsersByCourseCount, fetchUsersByDisablility, fetchUsersByEducationCount, fetchUsersBySexCount } from '../../../api';
 
 // Define the PieChart component
-const PieChart = ({ gender, employment, disability }) => {
+const PieChart = ({ gender, employment, disability,index }) => {
   
     // Define data for the chart
     const genders = ["Male", "Female", "Transgender"];
@@ -14,7 +15,42 @@ const PieChart = ({ gender, employment, disability }) => {
       const clrs= ['#F0D43E', '#0B7BFF', '#CBD8EC']
 
 
-    // Determine the data based on the props
+
+    
+      const [arr,setArr]= React.useState([]) ;
+    
+    useEffect(()=>{
+    
+    async function fetchData()
+    {
+    
+    if(gender)
+    {
+    const nums =await fetchUsersBySexCount() ;
+    console.log("gen",nums) ;
+    const x=Object.values(nums.data);
+    setArr(x) ;
+    }
+    else if(employment)
+    {
+    setArr([10, 1, 1]) ;
+    }
+    else
+    {
+     const nums =await fetchUsersByDisablility() ;
+     console.log("dis",nums) ;
+    const x=Object.values(nums.data);
+    setArr(x) ;
+    }
+    
+    }
+    
+    fetchData() ;
+    
+    },[index])
+    
+    
+    
     let val = []; 
     if (gender) {
         val = genders;
@@ -59,7 +95,7 @@ const PieChart = ({ gender, employment, disability }) => {
     };
 
     // Define series data for the chart
-    const series = [10, 1, 1];
+    const series = [...arr,0];
 
     // Calculate the sum of series data
     let sum = 0;
