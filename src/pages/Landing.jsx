@@ -35,7 +35,7 @@ const Landing = () => {
                   onSuccess={credentialResponse => {
                    const data= credentialResponse ;
                    localStorage.setItem('profile',data) ;
-                   history('/dashboard') ;
+                   history('/dashboard2') ;
                   }}
                   color="primary"
                   fullWidth="true"

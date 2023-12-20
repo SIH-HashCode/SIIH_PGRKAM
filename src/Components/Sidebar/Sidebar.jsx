@@ -17,8 +17,12 @@ import counsel from '../../assets/SidebarCounsel.svg';
 import skills from '../../assets/SidebarSkills.svg';
 import trending from '../../assets/SidebarTrending.svg';
 
+import { useNavigate } from 'react-router-dom';
 const Sidebar = ({setSidebarOpen,sidebarOpen,isMobile,setIsMobile}) => {
-  // Initialize state for options with default values
+  // Initialize state for options with default valu
+
+
+const history = useNavigate();
   const [optionsState, setOptionsState] = useState({
     Users: false,
     Jobs: false,
@@ -126,7 +130,7 @@ const [open, setOpen] = useState(true);
         setSidebarOpen(!sidebarOpen)
         }}/>
       </div>
-      <div className={styles.dash}>
+      <div className={styles.dash}  onClick={()=>history('/dashboard2')}>
         <img src={dashboard} alt='/' />
         <span>Dashboard</span>
       </div>
@@ -152,7 +156,7 @@ const [open, setOpen] = useState(true);
                     {option.subOptions && optionsState[option.name] && (
                       <div className={styles.dropdown}>
                       {option.subOptions.map((subOption, subOptionIndex) => (
-                        <div key={subOptionIndex} className={styles.subOption}>
+                        <div key={subOptionIndex} className={styles.subOption} onClick={()=>history('/dashboard1')}>
                           {subOption.icon && <img className={styles.icon} src={subOption.icon} alt={subOption.label} />}
                         <p>{subOption.label}</p>
                         </div>
@@ -170,6 +174,5 @@ const [open, setOpen] = useState(true);
      ) : null}
     </>
   );
-};
-
-export default Sidebar;
+                      };
+  export default Sidebar;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import styles from "./SimpleBar.module.scss"
 import Filter from "../../../Components/filter/Filterbar"
-const SimpleBar = ({content,title}) => {
+const SimpleBar = ({content,title,dropObjects}) => {
   const [data,setData] = useState(content);
     let chartOptions = {
         chart: {
@@ -61,7 +61,7 @@ const SimpleBar = ({content,title}) => {
     <div className={styles.bars}>
       <div className={styles.top}>
       <p>{title}</p>
-      <Filter items={["All",  "Linkedin","Youtube","Instagram","Newspaper","Other"]} data={content} setData={setData}/>
+      <Filter items={dropObjects} data={content} setData={setData}/>
       </div>
       <ReactApexChart
         options={chartOptions}
