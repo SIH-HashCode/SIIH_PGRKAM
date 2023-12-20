@@ -80,6 +80,9 @@ const sortedAgeRangeData = ageRangeData.sort((a, b) => {
     chart: {
       type: 'bar',
       height: 500,
+      toolbar:{
+        show:false
+      }
     },
     plotOptions: {
       bar: {
@@ -115,7 +118,7 @@ const sortedAgeRangeData = ageRangeData.sort((a, b) => {
   ];
 
   return (
-    <div id="chart">
+    <div id="chart" style={{width:"100%",background:"#fff",borderRadius:"20px"}}>
       <ReactApexChart options={options} series={series} type="bar" height={500} />
     </div>
   );

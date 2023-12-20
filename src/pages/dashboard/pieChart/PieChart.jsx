@@ -105,18 +105,19 @@ const PieChart = ({ gender, employment, disability,index }) => {
 
     // Render the PieChart component
     return (
-        <div className="chart-wrap">
+        <div className={styles.chartWrap}>
             <div id="chart" style={{ position: 'relative', width: 500 }}>
-                <div>
+                <div className={styles.f}>
                     <ReactApexChart options={options} series={series} type="donut" width={500} />
+                    <div className={styles.cntr}>
+                    <div>Total</div>
+                    <div>{sum}</div>
+                </div>
                 </div>
                 <div className={styles.uprWla}>
                     {val.map((item, index) => <div className={styles.circleBahar}><div className={styles.circle} style={{background:clrs[index]}}></div><div key={index} className={styles.content}>{item}</div></div>)}
                 </div>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '500', width: 150, height: 150, borderRadius: '50%', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center', fontSize: '3rem' }}>
-                    <div style={{ fontSize: '1rem' }}>Total</div>
-                    <div>{sum}</div>
-                </div>
+                
             </div>
         </div>
     );

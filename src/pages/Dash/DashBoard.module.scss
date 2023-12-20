@@ -11,7 +11,7 @@
         padding: 0px 10px;
         display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     // flex-wrap: wrap;
     overflow: scroll;
         border-bottom: 1px solid rgba(128, 128, 128, 0.664);
@@ -33,7 +33,9 @@
         }
 
     }
-
+.cards::-webkit-scrollbar{
+    display: none;
+}
 
 }
 
@@ -60,4 +62,10 @@
 
 .Dashboard::-webkit-scrollbar {
     display: none;
+}
+.graphs{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }

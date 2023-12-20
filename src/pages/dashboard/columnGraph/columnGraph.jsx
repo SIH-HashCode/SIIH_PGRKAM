@@ -62,7 +62,7 @@ const ColumnGraph = () => {
     {
     
     const nums =await fetchUsersByEducationCount() ;
-    console.log("course",nums) ;
+
     setArr(nums.data) ;
     }
     
@@ -146,7 +146,7 @@ const ColumnGraph = () => {
   };
 
   return (
-    <div id="chart">
+    <div id="chart"  style={{width:"100%",background:"#fff",padding:"1rem",borderRadius:"20px"}}>
       <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={350} />
     </div>
   );

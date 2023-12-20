@@ -2,10 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
+    flex-wrap: wrap;
+    
     .circleBahar {
         
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         width: fit-content;
         justify-content: space-evenly;
@@ -16,6 +18,10 @@
             width: 4px;
             padding: 2px;
             border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            flex-wrap: wrap;
             
         }
         
@@ -23,4 +29,28 @@
         
 
     }
+}
+.cntr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: #000;
+flex-direction: column;
+font-family: Open Sans;
+font-size: calc(.5rem + 2vw);
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.f{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.chartWrap{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 20px;
 }

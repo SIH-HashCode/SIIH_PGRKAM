@@ -43,13 +43,13 @@ const [activeBtn,setActiveBtn]= useState(0) ;
       <div className={styles.cards}>
         { arr.map((item,index)=><span key={index} className={index===activeBtn? styles.active :"" } onClick={()=>setActiveBtn(index)}>{item}</span>)}
       </div>
-      {/* <div style={{ display: "flex", width: "100%",alignItems:'center', justifyContent:"center" }}>
-        <div style={{  width: activeBtn===0 || activeBtn===4 ?"100%":"50%", marginTop:25 }}>
+      <div style={{ display: "flex", width: "100%",alignItems:'center', justifyContent:"center"}} >
+        <div style={{  width: activeBtn===0 || activeBtn===4 ?"50%":"100%", marginTop:25 }} className={styles.graphs}>
           {
           func(activeBtn)
           }
         </div>
-      </div> */}
+      </div>
   
     </div>
   );
