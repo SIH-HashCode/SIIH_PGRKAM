@@ -45,7 +45,7 @@ const bouncerate = (combinedUser.home/totalCount)*100;
 console.log(bouncerate)
 
 
-const obj=false ;
+const obj=true ;
 
   return (
     <div className={styles.container}>
@@ -67,7 +67,7 @@ const obj=false ;
         <div>
           <Searchbar />
         </div>
-        {obj?(<div><Dashboard dashboardData={dashboardData} /></div>):(<div><Dash2 /></div>)}
+        {obj?(<div><Dashboard dashboardData={dashboardData} liveData={dashboardData} /></div>):(<div><Dash2 /></div>)}
       </div>
     </div>
   );

@@ -9,7 +9,9 @@ import RadarGraph from "./RadarGraph/RadarGraph";
 import SimpleBar from "./SimpleBar/SimpleBar";
 import Maps from "../Maps";
 import BubbleChart from "./bubblechart/BubbleChart";
-export default function Dashboard({dashboardData}) {
+import Table from "../../Components/Table/Table";
+import Column from "./columnGraph/Column";
+export default function Dashboard({dashboardData,liveData}) {
 
 
 const combinedUser = { ...dashboardData.nonloginuser };
@@ -27,7 +29,6 @@ console.log(totallognuser);
 console.log("Total Count:", totalCount);
 const bouncerate = (combinedUser.home/totalCount)*100;
 console.log(bouncerate)
-
 
   const data = [
     ["Amritsar", ["xhhh", "xhh2", "xhh3"]],
@@ -74,6 +75,15 @@ console.log(bouncerate)
           <Maps  />
         </div>
        </div>
+       <Table/>
+      <div>
+        Live User Activity Of Guest Users
+      <Column data={liveData} indx={0}/>
+      </div>
+      <div>
+        Live User Activity Of Guest Users
+      <Column data={liveData} indx={1}/>
+      </div>
     </div>
   );
 }

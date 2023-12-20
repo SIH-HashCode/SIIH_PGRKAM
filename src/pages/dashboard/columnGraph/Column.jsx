@@ -1,87 +1,49 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { fetchUsersByEducationCount } from '../../../api';
-
-function organizeData(data) {
-    const order = [
-        "No Schooling",
-        "5th",
-        "8th",
-        "10th",
-        "12th",
-        "Diploma After 10th",
-        "Diploma After 12th",
-        "Graduate",
-        "ITI",
-        "M Phill",
-        "PG Diploma",
-        "Phd",
-        "Post Graduate"
-    ];
-
-    // Create an object to store the order of each item
-    const orderDict = {};
-    order.forEach((category, index) => {
-        orderDict[category] = index;
-    });
-
-    // Sort the data based on the order dictionary
-    const sortedData = Object.entries(data).sort((a, b) => orderDict[a[0]] - orderDict[b[0]]);
-
-    // Format the result as key-value pairs
-    const result = sortedData.map(item => ({ [item[0]]: item[1] }));
-
-    return result;
-}
-
-
 const educationLevels = [
-  "No Schooling",
-  "5th",
-  "8th",
-  "10th",
-  "12th",
-  "DIPLOMA AFTER 10TH",
-  "Diploma",
-  "AFTER 12TH",
-  "ITI",
-  "Graduate",
-  "PG Diploma",
-  "M. Phill",
-  "PHD"
+  "Skill Training",
+  "Jobs For Women(govt)",
+  "Jobs For Women(prvt)",
+  "Notifications",
+  "Disability",
+  "Armed Forces(Girl)",
+  "Armed Forces(Boy)",
+  "Local Services",
+  "Counselling",
+  "Pvt Jobs",
+  "Downloads",
+  "Govt Jobs",
+  "Home"
 ];
 
 
-const ColumnGraph = () => {
+const Column = ({data,indx}) => {
 
  const [arr,setArr]= React.useState([]) ;
     
-    useEffect(()=>{
-    
-    async function fetchData()
-    {
-    
-    const nums =await fetchUsersByEducationCount() ;
-    console.log("course",nums) ;
-    setArr(nums.data) ;
-    }
-    
-    fetchData() ;
-    
-    },[])
-    
-   const finalArray=Object.values(organizeData(arr))
-   
-   const valuesArray = finalArray.map(obj => Object.values(obj)[0]);
+ const finalArray = Object.entries(data).map(([key, value]) => ({
+    key: key,
+    value: Object.entries(value).map(([k,v])=>({
+        page:k,
+        count:v
+    }))
+  }));
+   //console.log(finalArray[0].value)
+   const valuesArray = finalArray[indx].value.map(obj => Object.values(obj)[1]);
+   const array  = Object.entries(valuesArray).map(([key, value]) => value);
+   console.log(array)
   const chartData = {
     series: [{
       name: 'No. of People',
-      data: valuesArray,
+      data: array,
     }],
     options: {
       chart: {
         height: 350,
         type: 'bar',
+        toolbar:{
+            show:false
+        }
       },
       plotOptions: {
         bar: {
@@ -146,10 +108,10 @@ const ColumnGraph = () => {
   };
 
   return (
-    <div id="chart"  style={{width:"100%",background:"#fff",padding:"1rem",borderRadius:"20px"}}>
+    <div id="chart"  style={{maxWidth:"100%",background:"#fff",padding:"1rem",borderRadius:"20px",overflow:"scroll"}}>
       <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={350} />
     </div>
   );
 };
 
-export default ColumnGraph;
+export default Column;

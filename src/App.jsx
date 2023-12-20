@@ -7,6 +7,7 @@ import ComponentsMount from './ComponentsMount';
 import Maps from './pages/Maps'
 import Dash2 from './pages/Dash/DashBoard';
 import Trending from './pages/trendings/Trending';
+import UserActivity from './pages/UserActivity/UserActivity';
 
 function App() {
   return(<>
