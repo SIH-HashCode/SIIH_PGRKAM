@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import React, { useState } from "react";
 import styles from "./Searchbar.module.scss";
 import logout from "../../assets/logout.svg";
 import Popup from "../../Components/PopUp/Popup"; 
@@ -38,7 +37,6 @@ console.log(user) ;
           />
         </form>
         <div className={styles.profileContainer}>
-        <img src={profile}/>
           <img
             className={styles.profile}
             src="https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg"
