@@ -22,6 +22,7 @@
     "@mui/utils": "^5.8.6",
     "@react-oauth/google": "^0.12.1",
     "apexcharts": "^3.45.0",
+    "axios": "^1.6.2",
     "config": "^3.3.9",
     "material-ui-popup-state": "^4.0.1",
     "prop-types": "^15.8.1",

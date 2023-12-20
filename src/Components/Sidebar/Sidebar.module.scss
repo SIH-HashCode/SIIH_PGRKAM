@@ -6,6 +6,9 @@
   background: white;
   height: 100vh;
   overflow: scroll;
+  float: left;
+  z-index: 10;
+  position: absolute;
   min-width: 16rem;
   
   .head {

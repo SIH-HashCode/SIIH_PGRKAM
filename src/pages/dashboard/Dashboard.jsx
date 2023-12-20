@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
 import TotalOrderLineChartCard from "./cards/Cards";
 import Areagraph from "./areagraph/Areagraph";
@@ -16,37 +16,38 @@ export default function Dashboard() {
     ["Tehsil 1", ["xhhh", "xhh2", "xhh3"]],
     // Add more data as needed
   ];
+  
   return (
     <div className={styles.Dashboard}>
         <p className={styles.ptitle}>Today</p>
       <div className={styles.cards}>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#7A3DD9" monthCount={2000} yearCount={100} title="Average Visit Time"/>
+          <TotalOrderLineChartCard isLoading={false} mode="#7A3DD9" monthCount={100} yearCount={120} title="Total Active users"/>
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#F24E1E" monthCount={2000} yearCount={100} title="Average Visit Time" />
+          <TotalOrderLineChartCard isLoading={false} mode="#F24E1E" monthCount={200} yearCount={10} title="Total Login Users" />
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#0076F4" monthCount={2000} yearCount={100} title="Average Visit Time"/>
+          <TotalOrderLineChartCard isLoading={false} mode="#0076F4" monthCount={100} yearCount={100} title="Total Guest user"/>
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount={2000} yearCount={100} title="Average Visit Time"/>
+        <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount="200%" yearCount="200%" title="Bounce Rate" />
         </div>
       </div>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "70%" }}>
+      <div className={styles.component1}>
+        <div className={styles.element}>
           <Areagraph count={200}/>
         </div>
-        <div style={{ width: "30%" }}>
+        <div className={styles.element2}>
           <ProgressBar />
         </div>
       </div>
-      <BubbleChart/>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "35%" }}>
+      <SimpleBar content={{"categories":["Linkedin","Youtube","Instagram","Print Media","Others"], "values":[10,122,40,20,50]}} title={"WHERE USERS SPOTTED PGRKAM ADVERTISEMENT"} dropObjects={["All",  "Linkedin","Youtube","Instagram","Newspaper","Other"]}/>
+      <div  className={styles.component2}>
+        <div className={styles.element}>
           <MultiAxis />
         </div>
-        <div style={{ width: "65%" }}>
+        <div className={styles.element2}>
           <StackedBarGraph data={data}/>
         </div>
       </div>

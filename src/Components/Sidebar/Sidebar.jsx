@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './Sidebar.module.scss';
 import logo from '../../assets/LogoGovt.png';
 import back from '../../assets/SidebarBack.svg';
@@ -17,7 +17,12 @@ import counsel from '../../assets/SidebarCounsel.svg';
 import skills from '../../assets/SidebarSkills.svg';
 import trending from '../../assets/SidebarTrending.svg';
 
-const Sidebar = ({setSidebarOpen,sidebarOpen}) => {
+import { useNavigate } from 'react-router-dom';
+const Sidebar = ({setSidebarOpen,sidebarOpen,isMobile,setIsMobile}) => {
+  // Initialize state for options with default valu
+
+
+const history = useNavigate();
   const [optionsState, setOptionsState] = useState({
     Users: false,
     Jobs: false,
@@ -108,12 +113,14 @@ const [open, setOpen] = useState(true);
       ],
     },
   ];
-
+  
   return (
     <>
-    {!open && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    {(!sidebarOpen) && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    // setIsMobile(false)
       setSidebarOpen(!sidebarOpen)}} style={{rotate:"180deg"}}/>}
-    <div className={styles.sidebar} style={{display: open?"block":"none"}}>
+      {true ? (
+    <div className={styles.sidebar} style={{display: sidebarOpen ?"block":"none"}}>
       <div className={styles.head}>
         <div className={styles.logo}>
           <img src={logo} alt="logo" />
@@ -123,7 +130,7 @@ const [open, setOpen] = useState(true);
         setSidebarOpen(!sidebarOpen)
         }}/>
       </div>
-      <div className={styles.dash}>
+      <div className={styles.dash}  onClick={()=>history('/dashboard2')}>
         <img src={dashboard} alt='/' />
         <span>Dashboard</span>
       </div>
@@ -149,7 +156,7 @@ const [open, setOpen] = useState(true);
                     {option.subOptions && optionsState[option.name] && (
                       <div className={styles.dropdown}>
                       {option.subOptions.map((subOption, subOptionIndex) => (
-                        <div key={subOptionIndex} className={styles.subOption}>
+                        <div key={subOptionIndex} className={styles.subOption} onClick={()=>history('/dashboard1')}>
                           {subOption.icon && <img className={styles.icon} src={subOption.icon} alt={subOption.label} />}
                         <p>{subOption.label}</p>
                         </div>
@@ -164,8 +171,8 @@ const [open, setOpen] = useState(true);
         ))}
       </div>
     </div>
+     ) : null}
     </>
   );
-};
-
-export default Sidebar;
+                      };
+  export default Sidebar;

@@ -13,4 +13,10 @@
     font-weight: 700;
     line-height: normal;
   }
+  .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 4rem;
+  }
 }

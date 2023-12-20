@@ -1,5 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { fetchUsersByEducationCount } from '../../../api';
+
+function organizeData(data) {
+    const order = [
+        "No Schooling",
+        "5th",
+        "8th",
+        "10th",
+        "12th",
+        "Diploma After 10th",
+        "Diploma After 12th",
+        "Graduate",
+        "ITI",
+        "M Phill",
+        "PG Diploma",
+        "Phd",
+        "Post Graduate"
+    ];
+
+    // Create an object to store the order of each item
+    const orderDict = {};
+    order.forEach((category, index) => {
+        orderDict[category] = index;
+    });
+
+    // Sort the data based on the order dictionary
+    const sortedData = Object.entries(data).sort((a, b) => orderDict[a[0]] - orderDict[b[0]]);
+
+    // Format the result as key-value pairs
+    const result = sortedData.map(item => ({ [item[0]]: item[1] }));
+
+    return result;
+}
+
 
 const educationLevels = [
   "No Schooling",
@@ -19,10 +53,30 @@ const educationLevels = [
 
 
 const ColumnGraph = () => {
+
+ const [arr,setArr]= React.useState([]) ;
+    
+    useEffect(()=>{
+    
+    async function fetchData()
+    {
+    
+    const nums =await fetchUsersByEducationCount() ;
+    console.log("course",nums) ;
+    setArr(nums.data) ;
+    }
+    
+    fetchData() ;
+    
+    },[])
+    
+   const finalArray=Object.values(organizeData(arr))
+   
+   const valuesArray = finalArray.map(obj => Object.values(obj)[0]);
   const chartData = {
     series: [{
       name: 'No. of People',
-      data: [2, 3, 4, 10, 4, 3, 3, 2, 1, 8, 5, 2],
+      data: valuesArray,
     }],
     options: {
       chart: {

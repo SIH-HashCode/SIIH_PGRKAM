@@ -6,19 +6,18 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import ComponentsMount from './ComponentsMount';
 import Maps from './pages/Maps'
 import Dash2 from './pages/Dash/DashBoard';
-import UserActivity from './pages/UserActivity/UserActivity';
+// import Recommendation from './pages/Recommendation';
 
 function App() {
   return(<>
   <BrowserRouter>
   <Routes>
    
-    <Route path='/dashboard' element={<><ComponentsMount/></>} />
-    <Route path='/dash2' element ={
-    // <Dash2 />
-    <UserActivity/>
-    } />
-    <Route path='/' element={<Landing />} />
+    <Route path='/dashboard1' element={<><ComponentsMount/></>} />
+    <Route path='/dashboard2' element={<><ComponentsMount dash2={true} /></>} />
+    <Route path='/dash2' element ={<Dash2 />} />
+      {/* <Route path='/heck' element ={<Recommendation />} /> */}
+    <Route path='/' element={<Landing/>} />
     <Route path='/map' element={<Maps />} />
   </Routes>
   </BrowserRouter>
@@ -26,4 +25,4 @@ function App() {
   )
 }
 
-export default App
+export default App

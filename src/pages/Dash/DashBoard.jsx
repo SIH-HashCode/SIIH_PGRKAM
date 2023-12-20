@@ -26,12 +26,12 @@ const func = (index) => {
     case 4:
       return <ColumnGraph />;
     case 1:
-      return <PieChart gender="male"  />; 
+      return <PieChart gender="male" index={index}  />; 
     case 3:
-      return <PieChart employment="employed" />; 
+      return <PieChart employment="employed" index={index} />; 
     
     case 2:
-        return <PieChart disability={true} />; 
+        return <PieChart disability={true} index={index} />; 
   }
 };
 export default function Dash2() {
@@ -43,13 +43,13 @@ const [activeBtn,setActiveBtn]= useState(0) ;
       <div className={styles.cards}>
         { arr.map((item,index)=><span key={index} className={index===activeBtn? styles.active :"" } onClick={()=>setActiveBtn(index)}>{item}</span>)}
       </div>
-      <div style={{ display: "flex", width: "100%",alignItems:'center', justifyContent:"center" }}>
+      {/* <div style={{ display: "flex", width: "100%",alignItems:'center', justifyContent:"center" }}>
         <div style={{  width: activeBtn===0 || activeBtn===4 ?"100%":"50%", marginTop:25 }}>
           {
           func(activeBtn)
           }
         </div>
-      </div>
+      </div> */}
   
     </div>
   );
