@@ -13,7 +13,6 @@ import ChartDataMonth from './month-wise-data';
 import ChartDataYear from './year-wise-data';
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import { Container } from '@mui/system';
 
 const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   backgroundColor: mode,
@@ -90,10 +89,10 @@ const TotalOrderLineChartCard = ({ isLoading,mode,monthCount,yearCount,title}) =
         <SkeletonTotalOrderCard />
       ) : (
           <div style={{ background: mode+"20",borderRadius:"10px"}} >
-        <CardWrapper border={false} content={false} mode={mode} style={{borderRadius:"10px"}}>
+        <CardWrapper border={false} content={false} mode={mode} style={{borderRadius:"10px"}} className={styles.bahaar}>
 
           
-          <Container sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}} >
+          <Box sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}} >
             <Grid container direction="column">
               <Grid item>
                 <Grid container justifyContent="space-between">
@@ -163,7 +162,7 @@ const TotalOrderLineChartCard = ({ isLoading,mode,monthCount,yearCount,title}) =
                 </Grid>
               </Grid>
             </Grid>
-          </Container>
+          </Box>
         </CardWrapper>
           </div>
       )}

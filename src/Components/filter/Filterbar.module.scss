@@ -1,63 +1,45 @@
-// // _dropdown-filter-bar.scss
-
-// .dropdownFilterBar {
-//     position: relative;
-//     width: 200px;
-//     border: 1px solid grey;
-//   }
-  
-//   .selectedItem {
-//     cursor: pointer;
-//     padding: 10px;
-//     border: 1px solid #ccc;
-//   }
-  
-//   .dropdownList {
-//     list-style: none;
-//     padding: 0;
-//     margin: 0;
-//     position: absolute;
-//     bottom: 100%; // Position the dropdown list above the selected item
-//     left: 0;
-//     width: 100%;
-//     background-color: #cc0a0a;
-//     border: 1px solid #ccc;
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-//     display: none;
-//   }
-  
-//   .dropdownList li {
-//     padding: 10px;
-//     cursor: pointer;
-//     &:hover {
-//       background-color: #f2f2f2;
-//     }
-//   }
-  
-//   // Show the dropdown list when the dropdown is open
-//   .dropdownFilterBar.open .dropdownList {
-//     display: block;
-//   }
-.dropdownFilterBar{
-   // border: 1px solid #3c3c3c;
-    border-radius: 10px;
-    position: relative;
-    width: fit-content;
-   padding: .1rem 1rem;
-   .selectedItem{
-    font-size: 1.1rem;
-    font-family: Open,Sans;
-   }
-   .dropdownList{
-    position: absolute;
-    ul{
-        li{
-            
-                font-size: 1rem;
-                font-family: Open Sans;
-               
-        }
+.filter {
+  color: #1c1e26;
+  text-align: right;
+  font-family: Open Sans;
+  font-size: 1rem;
+  position: fixed;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-left: 0.7rem;
+      height: 12px;
+      width: 12px;
     }
-   }
- 
+  }
+  .arrow:hover {
+    cursor: pointer;
+  }
+  position: relative;
+  .filterOption {
+    background-color: #eef2f6;
+    border: 1px solid #d1d1d1;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    .item {
+      width: 100%;
+    }
+    p{
+        white-space: nowrap;
+      }
+    .item:hover {
+      background-color: #fff;
+      cursor: pointer;
+      border-radius: 1px;
+     
+    }
+   
+  }
 }

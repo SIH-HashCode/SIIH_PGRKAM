@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './Sidebar.module.scss';
 import logo from '../../assets/LogoGovt.png';
 import back from '../../assets/SidebarBack.svg';
@@ -11,7 +11,7 @@ import feedback from '../../assets/SidebarFeedback.svg';
 import down from '../../assets/SidebarDown.svg';
 import up from '../../assets/SidebarUp.svg';
 
-const Sidebar = ({setSidebarOpen,sidebarOpen}) => {
+const Sidebar = ({setSidebarOpen,sidebarOpen,isMobile,setIsMobile}) => {
   // Initialize state for options with default values
   const [optionsState, setOptionsState] = useState({
     Users: false,
@@ -67,12 +67,14 @@ const [open, setOpen] = useState(true);
       ],
     },
   ];
-
+  
   return (
     <>
-    {!open && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    {(!sidebarOpen) && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    // setIsMobile(false)
       setSidebarOpen(!sidebarOpen)}} style={{rotate:"180deg"}}/>}
-    <div className={styles.sidebar} style={{display: open?"block":"none"}}>
+      {true ? (
+    <div className={styles.sidebar} style={{display: sidebarOpen ?"block":"none"}}>
       <div className={styles.head}>
         <div className={styles.logo}>
           <img src={logo} alt="logo" />
@@ -120,6 +122,7 @@ const [open, setOpen] = useState(true);
         ))}
       </div>
     </div>
+     ) : null}
     </>
   );
 };

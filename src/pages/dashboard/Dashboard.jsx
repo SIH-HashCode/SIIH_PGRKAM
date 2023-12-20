@@ -6,12 +6,15 @@ import ProgressBar from "./progressbar/ProgressBar";
 import MultiAxis from "./MultiAxisGraph/MultiAxis";
 import StackedBarGraph from "./stackedBarGraph/StackedBarGraph";
 import BubbleChart from "./bubblechart/BubbleChart";
+import CardGraph from "../cardgraph/CardGraph";
+import SimpleBar from "./SimpleBar/SimpleBar";
 export default function Dashboard() {
   const data = [
     ["Amritsar", ["xhhh", "xhh2", "xhh3"]],
     ["Tehsil 1", ["xhhh", "xhh2", "xhh3"]],
     // Add more data as needed
   ];
+  
   return (
     <div className={styles.Dashboard}>
         <p className={styles.ptitle}>Today</p>
@@ -29,20 +32,20 @@ export default function Dashboard() {
           <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount={2000} yearCount={100} title="Average Visit Time"/>
         </div>
       </div>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "70%" }}>
+      <div className={styles.component1}>
+        <div className={styles.element}>
           <Areagraph count={200}/>
         </div>
-        <div style={{ width: "30%" }}>
+        <div className={styles.element2}>
           <ProgressBar />
         </div>
       </div>
-      <BubbleChart/>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "35%" }}>
+      <SimpleBar content={{"categories":["Linkedin","Youtube","Instagram","Print Media","Others"], "values":[10,122,40,20,50]}} title={"WHERE USERS SPOTTED PGRKAM ADVERTISEMENT"}/>
+      <div  className={styles.component2}>
+        <div className={styles.element}>
           <MultiAxis />
         </div>
-        <div style={{ width: "65%" }}>
+        <div className={styles.element2}>
           <StackedBarGraph data={data}/>
         </div>
       </div>

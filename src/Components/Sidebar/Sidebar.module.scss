@@ -6,7 +6,14 @@
   background: white;
   height: 100vh;
   overflow: scroll;
-  
+  float: left;
+  z-index: 10;
+  // width: 20%;
+  position: absolute;
+  // padding: 0 1.4rem;
+  // @media screen and (max-width:1245px) {
+  //   position: absolute;
+  // }
   .head {
     display: flex;
     flex-direction: row;

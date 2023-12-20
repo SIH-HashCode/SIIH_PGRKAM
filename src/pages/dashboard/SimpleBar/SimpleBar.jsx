@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import styles from "./SimpleBar.module.scss"
-const SimpleBar = () => {
-    const chartOptions = {
+import Filter from "../../../Components/filter/Filterbar"
+const SimpleBar = ({content,title}) => {
+  const [data,setData] = useState(content);
+    let chartOptions = {
         chart: {
           toolbar: {
             show: false,
           },
         },
         xaxis: {
-          categories: ["Agriculture", "IT", "Chemicals", "Medical", "Pharmacist"],
+          categories: data.categories,
           show: false,
           axisBorder: {
             show: false,
@@ -51,14 +53,16 @@ const SimpleBar = () => {
 
   const chartSeries = [
     {
-      name: "Monthly Sales",
-      data: [50, 30, 60, 20, 40],
+      name: "Count",
+      data: data.values,
     },
   ];
-
   return (
     <div className={styles.bars}>
-      <p>TRENDING JOBS ON PORTAL</p>
+      <div className={styles.top}>
+      <p>{title}</p>
+      <Filter items={["All",  "Linkedin","Youtube","Instagram","Newspaper","Other"]} data={content} setData={setData}/>
+      </div>
       <ReactApexChart
         options={chartOptions}
         series={chartSeries}
