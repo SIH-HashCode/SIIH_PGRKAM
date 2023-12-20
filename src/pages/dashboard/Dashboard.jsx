@@ -68,11 +68,19 @@ console.log(bouncerate)
           <StackedBarGraph data={data}/>
         </div>
       </div>
+      <div  style={{ width: "80%", marginLeft:10, padding:10, borderRadius:10, background:"#fff"}}>
+      {dashboardData.docRefrer &&
+  Object.entries(dashboardData.docRefrer).map(([key, value]) => (
+    <span key={key}>{`${key}: ${value}`}</span>
+  ))}
+  
+      </div>
        <div style={{ display: "flex", width: "100%", alignItems:'center', justifyContent:'center', marginTop:30 }}>
        <div style={{ width: "80%",height:'100%', minHeight:800, padding:10, borderRadius:10, background:"#fff"}}>
           <Maps  />
         </div>
        </div>
+      
     </div>
   );
 }
