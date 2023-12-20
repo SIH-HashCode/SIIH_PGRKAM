@@ -14,6 +14,7 @@ export default function ComponentsMount({dash2}) {
     loginuser: {},
     deviceCounts: {},
   });
+  
 
   useEffect(() => {
     // Establish a WebSocket connection to the server
@@ -31,6 +32,22 @@ export default function ComponentsMount({dash2}) {
 
   }, []); // Empty dependency array to run the effect only once on component mount
 
+const combinedUser = { ...dashboardData.nonloginuser };
+
+      // Add values of loginuser to combinedUser for all keys
+      for (const key in dashboardData.loginuser) {
+        if (dashboardData.loginuser.hasOwnProperty(key) && combinedUser.hasOwnProperty(key)) {
+          combinedUser[key] += dashboardData.loginuser[key]; // Fix here
+        }
+      }
+const totalCount = Object.values(combinedUser).reduce((acc, value) => acc + value, 0);
+const totallognuser= Object.values(dashboardData.loginuser).reduce((acc, value) => acc + value, 0);
+const totalnotloginuser= Object.values(dashboardData.nonloginuser).reduce((acc, value) => acc + value, 0);
+console.log(totallognuser);
+console.log("Total Count:", totalCount);
+const bouncerate = (combinedUser.home/totalCount)*100;
+console.log(bouncerate)
+
 
 const obj=dash2 ;
 
@@ -43,7 +60,7 @@ const obj=dash2 ;
         <div>
           <Searchbar />
         </div>
-        {obj?(<div><Dashboard /></div>):(<div><Dash2 /></div>)}
+        {obj?(<div><Dashboard dashboardData={dashboardData} /></div>):(<div><Dash2 /></div>)}
       </div>
     </div>
   )
