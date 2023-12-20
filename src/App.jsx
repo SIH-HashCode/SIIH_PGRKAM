@@ -3,26 +3,19 @@ import './App.css'
 import Landing from './pages/Landing'
 import Searchbar from './pages/searchbar/Searchbar'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import  DashBoard  from './pages/dashboard/Dashboard'
+import ComponentsMount from './ComponentsMount';
+import Maps from './pages/Maps'
+import Dash2 from './pages/Dash/DashBoard';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main:'#A5A4A4'
-     
-    },
-    // You can add more custom colors if needed
-    // For example, error, warning, success, etc.
-  },
-});
 function App() {
   return(<>
   <BrowserRouter>
   <Routes>
-     {/* <Route path='/' element={<Landing />} /> */}
    
-    <Route path='/' element={<><Searchbar/><DashBoard /></>} />
-   
+    <Route path='/dashboard' element={<><ComponentsMount/></>} />
+    <Route path='/dash2' element ={<Dash2 />} />
+    <Route path='/' element={<Landing />} />
+    <Route path='/map' element={<Maps />} />
   </Routes>
   </BrowserRouter>
     </>

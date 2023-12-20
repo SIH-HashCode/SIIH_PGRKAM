@@ -6,7 +6,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 const EarningCard = () => (
   <Card>
-    <CardContent>
+    <CardContent >
       <Grid container direction="column">
         <Grid item>
           <Grid container justifyContent="space-between">

@@ -12,8 +12,8 @@ export default function Bar({svgImage,title,count,colour,upperBound,currentBound
       </div>
       <div className={styles.barRight}>
         <div className={styles.titles}>
-        <p>{title}</p>
-        <p>+{count}</p>
+        <p style={{color:back}}>{title}</p>
+        <p style={{color:back}}>+{count}</p>
         </div>
         <div className={styles.barProgress}>
             <div style={{ width: `${percentage}%`,height:"0.7rem",background:back, borderRadius:"100px"}}/>

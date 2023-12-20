@@ -1,41 +1,38 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-
+import styles from "./Card.module.scss"
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
-
 // third-party
 import Chart from 'react-apexcharts';
-
 // project imports
 import CardDashBoard from './Card';
 import SkeletonTotalOrderCard from './Skeletom';
-
 import ChartDataMonth from './month-wise-data';
 import ChartDataYear from './year-wise-data';
-
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   backgroundColor: mode,
-  color: '#fff',
+  
+  color: '#3c3c3c',
   overflow: 'hidden',
   position: 'relative',
   '&>div': {
     position: 'relative',
-    zIndex: 5
+    zIndex: 2
   },
   '&:after': {
     content: '""',
     position: 'absolute',
     width: 210,
     height: 210,
-    background: mode,
+    background: "#3c3c3c",
+    opacity: 0.3,
     borderRadius: '50%',
-    zIndex: 1,
+    zIndex: 0,
     top: -85,
     right: -95,
     [theme.breakpoints.down('sm')]: {
@@ -45,15 +42,15 @@ const CardWrapper = styled(CardDashBoard)(({ theme,mode}) => ({
   },
   '&:before': {
     content: '""',
-    position: 'absolute',
-    zIndex: 1,
+    position: 'absolute',   
+    zIndex: 2,
     width: 210,
     height: 210,
-    background: mode,
+    background: "#3c3c3c",
     borderRadius: '50%',
     top: -125,
     right: -15,
-    opacity: 0.5,
+    opacity: 0.3,
     [theme.breakpoints.down('sm')]: {
       top: -155,
       right: -70
@@ -67,7 +64,22 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
   const theme = useTheme();
 
   const [timeValue, setTimeValue] = useState(false);
-  const handleChangeTime = (event, newValue) => {
+
+  const [num, setNum]= useState(2) ;
+  const handleChangeTime = (e, newValue) => {
+    
+    const ele= e.target ;
+    ele.disabled=false ;
+    if(num===1)
+    {
+      
+      setNum(2);
+    }
+    else
+    {
+      setNum(1) ;
+    }
+    
     setTimeValue(newValue);
   };
 
@@ -76,8 +88,11 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
       {isLoading ? (
         <SkeletonTotalOrderCard />
       ) : (
-        <CardWrapper border={false} content={false} mode={mode}>
-          <Box sx={{ p: 2.25 }}>
+          <div style={{ background: mode+"20",borderRadius:"10px"}}>
+        <CardWrapper border={false} content={false} mode={mode} style={{borderRadius:"10px"}}>
+
+          
+          <Box sx={{ p: 2.25 }} style={{ backgroundColor:"transparent"}}>
             <Grid container direction="column">
               <Grid item>
                 <Grid container justifyContent="space-between">
@@ -96,24 +111,22 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Button
-                      disableElevation
-                      variant={timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, true)}
-                    >
+                    <button
+                     
+                     onClick={(e) => handleChangeTime(e, true)}
+                     className={styles.Back}
+                     style={{background:num===2?mode:"transparent"}}
+                     >
                       Month
-                    </Button>
-                    <Button
-                      disableElevation
-                      variant={!timeValue ? 'contained' : 'text'}
-                      size="small"
-                      sx={{ color: 'inherit' }}
+                    </button>
+                    <button
+                     className={styles.Back}
+                     style={{background:num===1?mode:"transparent"}}
                       onClick={(e) => handleChangeTime(e, false)}
+                      
                     >
                       Year
-                    </Button>
+                    </button>
                   </Grid>
                 </Grid>
               </Grid>
@@ -123,29 +136,18 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
                     <Grid container alignItems="center">
                       <Grid item>
                         {timeValue ? (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
+                          <Typography sx={{ fontSize: '2.125rem', color: '#fff',fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$108</Typography>
                         ) : (
-                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
+                          <Typography sx={{ fontSize: '2.125rem',color: '#fff', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$961</Typography>
                         )}
                       </Grid>
-                      <Grid item>
-                        <Avatar
-                          sx={{
-                            ...theme.typography.smallAvatar,
-                            cursor: 'pointer',
-                            backgroundColor: mode,
-                            color: mode
-                          }}
-                        >
-                          <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
-                        </Avatar>
-                      </Grid>
+                      
                       <Grid item xs={12}>
                         <Typography
                           sx={{
                             fontSize: '1rem',
                             fontWeight: 500,
-                            color: '#E9E9E9'
+                            color: '#fff'
 
                           }}
                         >
@@ -162,6 +164,7 @@ const TotalOrderLineChartCard = ({ isLoading,mode}) => {
             </Grid>
           </Box>
         </CardWrapper>
+          </div>
       )}
     </>
   );

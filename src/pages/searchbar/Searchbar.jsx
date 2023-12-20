@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Searchbar.module.scss";
 
 export default function Searchbar() {
+
+
+const [profile,setProfile]= useState('https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg') ;
+
+useEffect(()=>{
+
+const user= localStorage.getItem('profile')
+// const data= JSON.parse(user) ;
+console.log(user) ;
+
+
+},[])
   return (
     <div>
       <div className={styles.searchbarContainer}>
@@ -13,7 +25,7 @@ export default function Searchbar() {
           />
         </form>
         <div className={styles.profileContainer}>
-        <img src="https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg"/>
+        <img src={profile}/>
         </div>
       </div>
      

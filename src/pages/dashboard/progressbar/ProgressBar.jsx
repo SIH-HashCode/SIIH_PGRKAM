@@ -46,7 +46,9 @@ export default function ProgressBar() {
     ]
   return (
     <div className={styles.progreebar}>
+        <div className={styles.head}>
         <p className={styles.head}>MOST INTERACTED FEATURES</p>
+        </div>
       {
         data.map((element)=>{
            return(

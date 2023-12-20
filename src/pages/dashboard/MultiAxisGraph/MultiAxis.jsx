@@ -32,23 +32,12 @@ const MultiAxis = () => {
       name: 'Line Chart',
       type: 'line',
       data: [23, 12, 54, 61, 32, 56, 12, 34, 56, 21, 45, 23],
-      stroke: {
-        width: 4, // Set the width of the line
-        dashArray: 0, // Set the dash array for the line (0 for solid line)
-        curve: 'smooth', // Set the curve for the line
-        dropShadow: {
-          enabled: true,
-          top: 0,
-          left: 0,
-          blur: 5,
-          opacity: 0.1,
-        },
-      },
     },
   ];
 
   return (
    <div className={styles.multiaxis}>
+    <p>NEW USERS ON APPLICATION</p>
      <div className={styles.chart}>
       <Chart options={options} series={series} type="line" height={350} />
     </div>
