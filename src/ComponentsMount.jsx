@@ -32,7 +32,7 @@ export default function ComponentsMount() {
   }, []); // Empty dependency array to run the effect only once on component mount
 
 
-const obj=false ;
+const obj=true ;
 
   return (
     <div className={styles.container}>
