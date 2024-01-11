@@ -1,0 +1,47 @@
+.cardGraph{
+    background-color: #0076F4;
+    min-width: 243px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 1rem;
+   .top{
+    width: fit-content;
+    align-self: flex-end;
+    button{
+        background-color: transparent;
+        border: none;
+        color:#fff;
+        margin: .1rem;
+    }
+   }
+   .down{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    .left{
+        width: 50%;
+        .count{
+            color: #FFF;
+
+font-family: Maitree;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+        }
+        .title{
+            color: #E9E9E9;
+
+font-family: Maitree;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 112.5% */
+        }
+    }
+    .right{
+        width: 50%;
+    }
+   }
+}

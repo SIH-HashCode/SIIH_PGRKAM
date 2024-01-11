@@ -23,7 +23,7 @@ export default function ProgressBar() {
             "colour": "rgba(0, 118, 244, 0.2)",
             "back": "rgba(0, 118, 244, 1)",
             "currentBound":7,
-            "title" : "Job Application"
+            "title" : "Courses"
         },
         {
             "upperBound" : upperBound,
@@ -32,7 +32,7 @@ export default function ProgressBar() {
             "colour": "rgba(1, 181, 154, 0.2)",
             "back": "rgba(1, 181, 154, 1)",
             "currentBound":55,
-            "title" : "Job Application"
+            "title" : "Counselling"
         },
         {
             "upperBound" : upperBound,
@@ -41,7 +41,7 @@ export default function ProgressBar() {
             "colour": "rgba(122, 61, 217, 0.2)",
             "back": "rgba(122, 61, 217, 1)",
             "currentBound":27,
-            "title" : "Job Application"
+            "title" : "Local Service Provider"
         },
         
         

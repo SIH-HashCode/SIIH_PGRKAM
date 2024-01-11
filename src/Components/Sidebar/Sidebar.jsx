@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './Sidebar.module.scss';
 import logo from '../../assets/LogoGovt.png';
 import back from '../../assets/SidebarBack.svg';
@@ -16,9 +16,10 @@ import local from '../../assets/SidebarLocal.svg';
 import counsel from '../../assets/SidebarCounsel.svg';
 import skills from '../../assets/SidebarSkills.svg';
 import trending from '../../assets/SidebarTrending.svg';
-import { useNavigate } from 'react-router-dom';
 
-const Sidebar = ({setSidebarOpen,sidebarOpen}) => {
+import { useNavigate } from 'react-router-dom';
+const Sidebar = ({setSidebarOpen,sidebarOpen,isMobile,setIsMobile}) => {
+  // Initialize state for options with default valu
 
 
 const history = useNavigate();
@@ -112,12 +113,14 @@ const [open, setOpen] = useState(true);
       ],
     },
   ];
-
+  
   return (
     <>
-    {!open && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    {(!sidebarOpen) && <img src={back} className={styles.back} alt="back" onClick={()=>{setOpen(!open) 
+    // setIsMobile(false)
       setSidebarOpen(!sidebarOpen)}} style={{rotate:"180deg"}}/>}
-    <div className={styles.sidebar} style={{display: open?"block":"none"}}>
+      {true ? (
+    <div className={styles.sidebar} style={{display: sidebarOpen ?"block":"none"}}>
       <div className={styles.head}>
         <div className={styles.logo}>
           <img src={logo} alt="logo" />
@@ -168,8 +171,8 @@ const [open, setOpen] = useState(true);
         ))}
       </div>
     </div>
+     ) : null}
     </>
   );
-};
-
-export default Sidebar;
+                      };
+  export default Sidebar;

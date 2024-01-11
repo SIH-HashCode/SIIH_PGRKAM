@@ -54,7 +54,7 @@ const [activeBtn,setActiveBtn]= useState(0) ;
         
         </div>
       </div>
+      </div>
   
-    </div>
   );
 }

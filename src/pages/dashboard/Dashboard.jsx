@@ -9,7 +9,12 @@ import RadarGraph from "./RadarGraph/RadarGraph";
 import SimpleBar from "./SimpleBar/SimpleBar";
 import Maps from "../Maps";
 import BubbleChart from "./bubblechart/BubbleChart";
-export default function Dashboard({dashboardData}) {
+import Table from "../../Components/Table/Table";
+import Column from "./columnGraph/Column";
+export default function Dashboard({dashboardData, liveData}) {
+
+
+
 
 
 const combinedUser = { ...dashboardData.nonloginuser };
@@ -29,11 +34,13 @@ const bouncerate = (combinedUser.home/totalCount)*100;
 console.log(bouncerate)
 
 
+
   const data = [
     ["Amritsar", ["xhhh", "xhh2", "xhh3"]],
     ["Tehsil 1", ["xhhh", "xhh2", "xhh3"]],
     // Add more data as needed
   ];
+  
   return (
     <div className={styles.Dashboard}>
         <p className={styles.ptitle}>Today</p>
@@ -48,23 +55,24 @@ console.log(bouncerate)
           <TotalOrderLineChartCard isLoading={false} mode="#0076F4" monthCount={totalnotloginuser} yearCount={totalnotloginuser} title="Total Guest user"/>
         </div>
         <div className={styles.graph}>
-          <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount={bouncerate} yearCount={bouncerate?bouncerate:0} title="Bounce Rate"/>
+          
+          <TotalOrderLineChartCard isLoading={false} mode="#01B59A" monthCount={bouncerate+"%"} yearCount={bouncerate?bouncerate+"%":0 +"%"} title="Bounce Rate"/>
         </div>
       </div>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "70%" }}>
+      <div className={styles.component1}>
+        <div className={styles.element}>
           <Areagraph count={200}/>
         </div>
-        <div style={{ width: "30%" }}>
+        <div className={styles.element2}>
           <ProgressBar />
         </div>
       </div>
-      <BubbleChart/>
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ width: "35%" }}>
+      <SimpleBar content={{"categories":["Linkedin","Youtube","Instagram","Print Media","Others"], "values":[10,122,40,20,50]}} title={"WHERE USERS SPOTTED PGRKAM ADVERTISEMENT"} dropObjects={["All",  "Linkedin","Youtube","Instagram","Newspaper","Other"]}/>
+      <div  className={styles.component2}>
+        <div className={styles.element}>
           <MultiAxis />
         </div>
-        <div style={{ width: "65%" }}>
+        <div className={styles.element2}>
           <StackedBarGraph data={data}/>
         </div>
       </div>
@@ -80,7 +88,14 @@ console.log(bouncerate)
           <Maps  />
         </div>
        </div>
-      
+       <Table/>
+      <div>
+        Live User Activity Of Guest Users
+      <Column data={liveData} indx={0}/>
+      </div><div>
+        Live User Activity Of Guest Users
+      <Column data={liveData} indx={1}/>
+      </div>
     </div>
   );
 }
