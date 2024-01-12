@@ -1,0 +1,63 @@
+.Dashboard {
+    background-color: rgba(238, 242, 246, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: scroll;
+    width: 100%;
+    .cards {
+        margin: 10px 20px;
+        margin-top: 50px;
+        padding: 0px 10px;
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // flex-wrap: wrap;
+    overflow: scroll;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.664);
+        white-space: nowrap;
+        span {
+            cursor: pointer;
+            color: var(--Text4, #868686);
+            font-family: Open Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0 1rem;
+        }
+
+        .active {
+            border-bottom: 2px solid #7A3DD9;
+            color: #7A3DD9;
+        }
+
+    }
+
+
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    .target {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: scroll;
+
+        .graph {
+            margin: 1rem;
+        }
+    }
+
+    .target::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.Dashboard::-webkit-scrollbar {
+    display: none;
+}

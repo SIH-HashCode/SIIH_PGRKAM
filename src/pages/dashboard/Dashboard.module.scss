@@ -1,0 +1,82 @@
+.Dashboard {
+  background-color: rgba(238, 242, 246, 1);
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow: scroll;
+  .ptitle {
+    color: #4b4b4b;
+    margin-left: 2rem;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: -0.5rem;
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  .target {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    .graph {
+      margin: 1rem;
+    }
+  }
+  .target::-webkit-scrollbar {
+    display: none;
+  }
+}
+.Dashboard::-webkit-scrollbar {
+  display: none;
+}
+.component1 {
+  display: flex;
+  width: 100%;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+  .element {
+    width: 70%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  .element2 {
+    width: 30%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}
+.component2 {
+  width: 100%;
+  display: flex;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+  .element {
+    width: 35%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  .element2 {
+    width: 65%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.disBtn:disabled{
+
+ background-color: #fff !important;   
+
+}
+
+.Back{
+
+padding: 5px 10px;
+border: none;
+border-radius: 3px;
+margin: 0px 5px;
+color: #fff;
+
+}
+
+.Back:disabled{
+    background-color: transparent !important;
+    color: #fff;
+
+}
+
+
+.bahaar{
+
+
+@media screen and (max-width:786px) {
+    
+   display: flex; 
+   border: 10px solid black;
+  flex-direction: column !important;  
+}
+
+}
